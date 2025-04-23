@@ -1,10 +1,11 @@
 .PHONY: test
 
-CFLAGS=-I ../src -Wall -g #-DSENTINEL
+CFLAGS=-I ../src -Wall -g -DSENTINEL
 
 test: test-rbtree
 	./test-rbtree
 	valgrind ./test-rbtree
+	$(MAKE) -C ../src
 
 test-rbtree: test-rbtree.o ../src/rbtree.o
 
